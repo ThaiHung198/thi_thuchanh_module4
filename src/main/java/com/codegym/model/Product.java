@@ -28,6 +28,7 @@ public class Product {
     @Min(value = 100000, message = "Giá khởi điểm phải ít nhất là 100,000 VND")
     private Double price;
 
+    @NotBlank(message = "Tình trạng không được để trống")
     private String status;
 
     @ManyToOne

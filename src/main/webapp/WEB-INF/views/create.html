@@ -27,6 +27,7 @@
         <div class="mb-3">
           <label for="status" class="form-label">Tình trạng</label>
           <input type="text" class="form-control" id="status" th:field="*{status}">
+          <div th:if="${#fields.hasErrors('status')}" th:errors="*{status}" class="form-text text-danger"></div>
         </div>
         <div class="mb-3">
           <label for="productType" class="form-label">Loại sản phẩm <span class="text-danger">*</span></label>
