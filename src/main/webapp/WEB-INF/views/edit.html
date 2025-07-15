@@ -13,7 +13,6 @@
             <a th:href="@{/products}" class="btn btn-secondary">Quay về danh sách</a>
         </div>
         <div class="card-body">
-            <!-- Form sẽ gửi request POST đến /products/edit -->
             <form th:action="@{/products/edit}" th:object="${product}" method="post">
                 <!-- Thêm một input ẩn để giữ lại ID của sản phẩm -->
                 <input type="hidden" th:field="*{id}"/>

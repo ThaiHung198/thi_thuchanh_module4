@@ -28,7 +28,6 @@ public class ProductController {
     @Autowired
     private IProductTypeService productTypeService;
 
-    // Hiển thị danh sách và tìm kiếm (Giữ nguyên)
     @GetMapping("")
     public String showList(Model model,
                            @PageableDefault(size = 5) Pageable pageable,
@@ -52,7 +51,6 @@ public class ProductController {
         return "list";
     }
 
-    // Hiển thị form thêm mới (Giữ nguyên)
     @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("product", new Product());
@@ -60,7 +58,6 @@ public class ProductController {
         return "create";
     }
 
-    // Xử lý thêm mới (Giữ nguyên)
     @PostMapping("/create")
     public String createProduct(@Valid @ModelAttribute Product product,
                                 BindingResult bindingResult,
@@ -75,7 +72,6 @@ public class ProductController {
         return "redirect:/products";
     }
 
-    // ----- PHẦN SỬA (Giữ nguyên) -----
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Integer id, Model model) {
         Optional<Product> productOptional = productService.findById(id);
@@ -101,8 +97,6 @@ public class ProductController {
         return "redirect:/products";
     }
 
-    // ----- PHẦN XÓA MỚI (THAY THẾ CHO CẢ 2 HÀM XÓA CŨ CỦA BẠN) -----
-    // Hàm này xử lý cả xóa 1 và xóa nhiều sản phẩm
     @PostMapping("/delete")
     public String deleteProducts(@RequestParam("productIds") int[] productIds, RedirectAttributes redirectAttributes) {
         // Kiểm tra xem có ID nào được chọn không để tránh lỗi

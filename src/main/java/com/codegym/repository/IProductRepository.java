@@ -9,8 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface IProductRepository extends JpaRepository<Product, Integer> {
 
-    // JPQL query để tìm kiếm theo tên, giá và loại sản phẩm.
-    // Dùng COALESCE để xử lý trường hợp tham số tìm kiếm là null hoặc rỗng
+
     @Query(value = "select p from Product p where " +
             "p.name like concat('%', :name, '%') " +
             "and p.price >= :price " +
